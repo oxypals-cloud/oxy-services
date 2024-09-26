@@ -3,22 +3,21 @@ package server
 import (
 	"context"
 	"fmt"
+	"golang.org/x/crypto/bcrypt"
 	"log"
-	"oxypals-cloud/oxy-services/auth/authpb"
+	"oxypals-cloud/oxy-services/auth/proto/github.com/oxypals-cloud/oxy-services/auth"
 	"time"
 
+	"github.com/dgrijalva/jwt-go"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
-	"golang.org/x/crypto/bcrypt"
-
-	"github.com/dgrijalva/jwt-go"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	// Replace with your path
 )
 
 type server struct {
+	auth.UnimplementedAuthServiceServer
 	collection *mongo.Collection
 	secretKey  []byte
 }
