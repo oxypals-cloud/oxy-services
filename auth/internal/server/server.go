@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"oxypals-cloud/oxy-services/auth/authpb"
 	"time"
 
 	"go.mongodb.org/mongo-driver/bson"
@@ -14,8 +15,7 @@ import (
 	"github.com/dgrijalva/jwt-go"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-
-	"github.com/oxypals-cloud/oxy-services/auth/authpb" // Replace with your path
+	// Replace with your path
 )
 
 type server struct {
